@@ -1,0 +1,1016 @@
+<!doctype html>
+<html lang="en" data-lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>BN21 Portable Charger · EVSE Pro App User Manual</title>
+<meta name="description" content="How to use the BN21 portable charger with the EVSE Pro app.">
+<style>
+:root{--blue:#155DFC;--green:#009966;--canvas:#F3F7F9;--card:#FFFFFF;--ink:#0B1526;--muted:#5B6B7E;--line:#E1E8EF;--soft:#EAF1F7;--blue-tint:#EAF0FE;--amber:#B45309;--amber-tint:#FBEEDB;--shadow:0 1px 2px rgba(11,21,38,.05),0 8px 24px rgba(11,21,38,.06);color-scheme:light dark}
+@media (prefers-color-scheme:dark){:root{--canvas:#0C1220;--card:#131B2C;--ink:#E8EEF6;--muted:#93A3B8;--line:#24304A;--soft:#1A2438;--blue:#5B8DFF;--green:#2FBF8F;--blue-tint:#182647;--amber:#E8A75B;--amber-tint:#3A2A14;--shadow:0 1px 2px rgba(0,0,0,.3),0 8px 24px rgba(0,0,0,.35)}}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{margin:0;background:var(--canvas);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text","PingFang SC","Hiragino Sans GB","Microsoft YaHei","Helvetica Neue",sans-serif;font-size:16px;line-height:1.7;-webkit-font-smoothing:antialiased}
+:root:not([data-lang="zh"]) .zh{display:none!important}
+:root[data-lang="zh"] .en{display:none!important}
+:root[data-lang="zh"] main{line-height:1.82}
+#progress{position:fixed;top:0;left:0;right:0;height:3px;z-index:60;background:linear-gradient(90deg,var(--green),var(--blue));transform:scaleX(0);transform-origin:0 0;pointer-events:none}
+.langswitch{position:fixed;top:12px;right:14px;z-index:50;display:flex;gap:2px;padding:3px;background:color-mix(in srgb,var(--card) 76%,transparent);-webkit-backdrop-filter:blur(12px) saturate(1.4);backdrop-filter:blur(12px) saturate(1.4);border:1px solid var(--line);border-radius:999px;box-shadow:var(--shadow)}
+.langswitch button{font:inherit;font-size:13px;font-weight:650;line-height:1;color:var(--muted);background:transparent;border:0;border-radius:999px;padding:7px 14px;cursor:pointer}
+.langswitch button.on{background:var(--blue);color:#fff}
+.langswitch button:not(.on):hover{color:var(--ink);background:var(--soft)}
+.langswitch button:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
+.wrap{max-width:1120px;margin:0 auto;padding:0 20px;display:flex;gap:48px}
+nav.toc{width:210px;flex:none;position:sticky;top:0;align-self:flex-start;max-height:100vh;overflow-y:auto;padding:40px 0;font-size:13px;scrollbar-width:thin}
+nav.toc .toc-head{font-weight:700;letter-spacing:.14em;font-size:11px;color:var(--muted);text-transform:uppercase;margin:0 0 10px 12px}
+nav.toc a{display:block;color:var(--muted);text-decoration:none;padding:5px 12px;border-radius:8px;border-left:2px solid transparent;line-height:1.45}
+nav.toc a:hover{color:var(--ink);background:var(--soft)}
+nav.toc a.active{color:var(--blue);border-left-color:var(--blue);background:var(--blue-tint);font-weight:600}
+@media (max-width:1023px){nav.toc{display:none}}
+main{flex:1;min-width:0;max-width:740px;padding:48px 0 96px}
+.eyebrow{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:18px;padding-right:120px}
+.mark{width:40px;height:40px;border-radius:11px;flex:none;background:linear-gradient(135deg,var(--green),var(--blue));display:grid;place-items:center;color:#fff;font-weight:800;font-size:15px;box-shadow:inset 0 1px 0 rgba(255,255,255,.32),0 3px 10px color-mix(in srgb,var(--blue) 28%,transparent)}
+.pill{font-size:12px;font-weight:600;color:var(--muted);background:var(--card);border:1px solid var(--line);border-radius:999px;padding:3px 11px}
+h1{font-size:34px;line-height:1.22;margin:0 0 16px;font-weight:750;text-wrap:balance}
+:root:not([data-lang="zh"]) h1{letter-spacing:-.022em}
+h1::after{content:"";display:block;width:48px;height:4px;border-radius:2px;background:linear-gradient(90deg,var(--green),var(--blue));margin-top:16px}
+.meta{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px 18px;margin:0 0 36px;font-size:14px;color:var(--muted)}
+.meta p{margin:0 0 4px}.meta p:last-child{margin:0}
+.meta code{font-size:12.5px}
+details.mtoc{display:none;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px 16px;margin-bottom:28px}
+details.mtoc summary{font-weight:700;cursor:pointer}
+details.mtoc a{display:block;padding:5px 0;color:var(--muted);text-decoration:none;font-size:14px}
+@media (max-width:1023px){details.mtoc{display:block}}
+section{margin-bottom:60px;scroll-margin-top:24px}
+.chapnum{display:flex;align-items:center;gap:12px;font-size:12px;font-weight:800;letter-spacing:.16em;color:var(--blue);text-transform:uppercase;margin-bottom:8px}
+.chapnum::after{content:"";flex:1;height:1px;background:var(--line)}
+h2{font-size:24px;line-height:1.3;margin:0 0 14px;font-weight:700;text-wrap:balance}
+:root:not([data-lang="zh"]) h2{letter-spacing:-.014em}
+h3{font-size:17.5px;margin:28px 0 10px;font-weight:650;scroll-margin-top:24px}
+p{margin:0 0 14px;text-wrap:pretty}
+ul,ol{margin:0 0 14px;padding-left:1.4em}
+li{margin-bottom:6px}
+li::marker{color:var(--muted)}
+a{color:var(--blue)}
+code{font-family:ui-monospace,"SF Mono",Menlo,monospace;font-size:.88em;background:var(--soft);border-radius:5px;padding:1px 5px}
+.note{border-left:3px solid var(--blue);background:var(--blue-tint);border-radius:0 12px 12px 0;padding:11px 16px 12px;margin:0 0 16px;font-size:14.5px}
+.note p:last-child{margin:0}
+.note::before{display:block;font-size:10.5px;font-weight:800;letter-spacing:.15em;color:var(--blue);margin-bottom:3px}
+.en .note::before{content:"NOTE"}.zh .note::before{content:"提示"}
+.note.warn{border-left-color:var(--amber);background:var(--amber-tint)}
+.note.warn::before{color:var(--amber)}
+.en .note.warn::before{content:"CAUTION"}.zh .note.warn::before{content:"注意"}
+.tw{overflow-x:auto;margin:0 0 18px;border:1px solid var(--line);border-radius:12px;background:var(--card)}
+table{border-collapse:collapse;width:100%;font-size:14px;min-width:460px;font-variant-numeric:tabular-nums}
+th,td{text-align:left;padding:10px 14px;border-bottom:1px solid var(--line);vertical-align:top;line-height:1.6}
+tr:last-child td{border-bottom:none}
+th{font-size:11.5px;letter-spacing:.09em;text-transform:uppercase;color:var(--muted);background:var(--soft);font-weight:700;white-space:nowrap}
+td:first-child{font-weight:600}
+figure{margin:6px 0 22px}
+figure.diagram{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px 14px 10px;text-align:center}
+figure.diagram img{width:100%;height:auto;display:block;background:#fff;border-radius:8px}
+figure figcaption{font-size:12.5px;color:var(--muted);text-align:center;padding-top:8px}
+figure.shot-grid{display:grid;gap:14px;margin-left:auto;margin-right:auto}
+figure.shot-grid.cols1{grid-template-columns:1fr;max-width:280px}
+figure.shot-grid.cols2{grid-template-columns:repeat(2,1fr);max-width:520px}
+figure.shot-grid.cols3{grid-template-columns:repeat(3,1fr);max-width:640px}
+figure.shot-grid figcaption{grid-column:1/-1}
+figure.shot-grid img{width:100%;display:block;border-radius:18px;border:1px solid var(--line);box-shadow:var(--shadow)}
+footer{color:var(--muted);font-size:13px;border-top:1px solid var(--line);padding-top:18px;margin-top:20px}
+@media (max-width:640px){h1{font-size:27px}.eyebrow{padding-right:0;margin-top:36px}figure.shot-grid.cols3{grid-template-columns:repeat(2,1fr)}}
+@media print{.langswitch,#progress,nav.toc,details.mtoc{display:none}.tw,figure,.note,tr{break-inside:avoid}}
+</style>
+</head>
+<body>
+<div id="progress"></div>
+<div class="langswitch" role="group" aria-label="Language">
+  <button id="lang-en" class="on" aria-pressed="true">English</button>
+  <button id="lang-zh" aria-pressed="false">中文</button>
+</div>
+<div class="wrap">
+<nav class="toc" aria-label="Contents"><div class="toc-head"><span class="en">Contents</span><span class="zh">目录</span></div><div class="en"><a href="#at-a-glance">At a glance</a><a href="#prepare">Before you start</a><a href="#pairing">Adding your BN21 (about 1 minute)</a><a href="#charging">Charging</a><a href="#schedule">Scheduled charging</a><a href="#start-method">How charging starts: Plug &amp; Charge and the button</a><a href="#settings">Device settings</a><a href="#history">History and costs</a><a href="#unpair">Unpairing, handing over and changing phones</a><a href="#messages">Messages and alerts</a><a href="#faq">FAQ</a><a href="#specs">Specifications</a></div><div class="zh"><a href="#zh-at-a-glance">先看这一页</a><a href="#zh-prepare">准备</a><a href="#zh-pairing">添加 BN21（约 1 分钟）</a><a href="#zh-charging">充电</a><a href="#zh-schedule">预约充电</a><a href="#zh-start-method">启动方式：即插即充与桩上按键</a><a href="#zh-settings">设备设置</a><a href="#zh-history">充电记录与费用</a><a href="#zh-unpair">解绑、转让与换手机</a><a href="#zh-messages">消息与提醒</a><a href="#zh-faq">常见问题</a><a href="#zh-specs">规格速查</a></div></nav>
+<main><div class="en" lang="en"><div class="eyebrow"><div class="mark">BN21</div><span class="pill">bn21-02-eu</span><span class="pill">1.84 kW · 8 A</span><span class="pill">Bluetooth only</span></div><h1>BN21 Portable Charger · EVSE Pro App User Manual</h1><div class="meta"><p>Device: BN21 portable AC charger (model code <code>bn21-02-eu</code>, single-phase 230 V / 8 A / 1.84 kW, Type 2 cable, built-in screen)</p><p>App: EVSE Pro v1.7.0 or later · Language: English</p><p>This manual covers only what the BN21 can do. For other models, see the full <a href="https://help.evse.com/manual/">EVSE Pro User Manual</a>; for troubleshooting, see <strong>Me → Help center</strong> in the app.</p></div><details class="mtoc"><summary>Contents</summary><a href="#at-a-glance">At a glance</a><a href="#prepare">Before you start</a><a href="#pairing">Adding your BN21 (about 1 minute)</a><a href="#charging">Charging</a><a href="#schedule">Scheduled charging</a><a href="#start-method">How charging starts: Plug &amp; Charge and the button</a><a href="#settings">Device settings</a><a href="#history">History and costs</a><a href="#unpair">Unpairing, handing over and changing phones</a><a href="#messages">Messages and alerts</a><a href="#faq">FAQ</a><a href="#specs">Specifications</a></details><section id="at-a-glance"><div class="chapnum">Overview</div><h2>At a glance</h2>
+<p>The BN21 is a <strong>Bluetooth-only</strong> portable charger: control it with your phone when you're nearby — <strong>no home Wi-Fi and no account needed</strong>.</p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>What you can do</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>✅ Pair over Bluetooth, start / stop charging</td>
+<td>When you're near the charger (within Bluetooth range, usually ~10 m)</td>
+</tr>
+<tr>
+<td>✅ Adjust the charging current</td>
+<td>6 – 8 A</td>
+</tr>
+<tr>
+<td>✅ Scheduled charging (one-time / weekly)</td>
+<td>Runs on time even after your phone leaves</td>
+</tr>
+<tr>
+<td>✅ Plug &amp; Charge switch, start / stop with the charger's button</td>
+<td><a href="#start-method">§5</a></td>
+</tr>
+<tr>
+<td>✅ Screen brightness, dimming, temperature unit</td>
+<td>Applies to the charger's own screen</td>
+</tr>
+<tr>
+<td>✅ Charging history, cost estimates, export</td>
+<td>Stored on your phone</td>
+</tr>
+<tr>
+<td>✅ Unpair / hand over</td>
+<td><a href="#unpair">§8</a></td>
+</tr>
+</tbody>
+</table></div>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>What the BN21 doesn't have</th>
+<th>Why</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>❌ Remote control (when you're away from the charger)</td>
+<td>It doesn't connect to the internet — Bluetooth is the only channel</td>
+</tr>
+<tr>
+<td>❌ Wi-Fi setup</td>
+<td>Same reason; pairing skips this step</td>
+</tr>
+<tr>
+<td>❌ Notifications while you're away</td>
+<td>Same reason</td>
+</tr>
+<tr>
+<td>❌ Sharing the device with family</td>
+<td>Not supported in the current version</td>
+</tr>
+<tr>
+<td>❌ Firmware updates from the app</td>
+<td>Not supported on this model</td>
+</tr>
+<tr>
+<td>❌ NFC cards, load balancing, solar</td>
+<td>Not in the hardware</td>
+</tr>
+</tbody>
+</table></div>
+<div class="note"><p>In short: <strong>every action needs you near the charger with Bluetooth on.</strong> If the app shows "Device offline", move closer and check that Bluetooth is on.</p></div>
+
+</section><section id="prepare"><div class="chapnum">Chapter 1</div><h2>Before you start</h2>
+<ol>
+<li>Install <strong>EVSE Pro</strong> from the App Store.</li>
+<li>On first launch the app asks for <strong>Bluetooth</strong> access — tap "Allow". It's the BN21's only way to talk to your phone. If you declined, turn it on in iPhone <strong>Settings → Privacy &amp; Security → Bluetooth</strong>.</li>
+<li>Notifications are optional: the BN21 isn't online, so it doesn't use push notifications. Declining doesn't affect anything.</li>
+<li><strong>You don't need an account.</strong> Pairing, control, schedules and history all work signed out. Only <strong>Feedback</strong> requires signing in.</li>
+</ol>
+
+</section><section id="pairing"><div class="chapnum">Chapter 2</div><h2>Adding your BN21 (about 1 minute)</h2>
+<p>Plug the BN21 into a power outlet and wait for its screen to light up. Then tap "Add a device" on the app's home screen (or "+" in the top-right):</p>
+<ol>
+<li><strong>Choose a method</strong> — "Pair via Bluetooth", or "Scan QR code": scan the QR code on the charger's label or screen; pairing then continues over Bluetooth. If it won't scan, tap "Search for nearby devices" to pair over Bluetooth directly.</li>
+<li><strong>"Looking for devices"</strong> — hold your phone near the charger. A device named like <strong>EVSE-XXXXXX</strong> appears; tap it. When iPhone shows a Bluetooth pairing request, tap "Pair".</li>
+<li><strong>"Almost done"</strong> — name the device. The default is its Bluetooth name; change it to something like "Car charger" so it's easy to recognise.</li>
+<li><strong>"You're all set"</strong> — tap "Open &lt;device name&gt;" to go to the control screen.</li>
+</ol>
+<p>There is no Wi-Fi step for the BN21 — once paired, it's ready.</p>
+<figure class="shot-grid cols2"><div><img src="images/screenshots/pairing_start_en.jpg" alt="Choose a pairing method" loading="lazy"></div><div><img src="images/screenshots/scanning_en.jpg" alt="Looking for devices" loading="lazy"></div><figcaption>Choose a pairing method · Looking for devices</figcaption></figure>
+
+<p><strong>Can't pair? Check in this order:</strong></p>
+<ul>
+<li>Is the charger's screen on? Is your phone close enough?</li>
+<li>"This charger is already paired": the BN21 is still paired to someone else's phone (or your old one). Ask the previous owner to unpair it, or factory-reset the charger (<a href="#unpair">§8.3</a>).</li>
+<li><strong>Just factory-reset?</strong> After a factory reset you <strong>must power-cycle the charger once more</strong> before pairing, otherwise it keeps connecting and dropping. Unplug it, wait 10 seconds, plug it back in, wait for the screen to settle, then pair again.</li>
+<li>Paired it on this iPhone before? Go to iPhone <strong>Settings → Bluetooth</strong>, tap ⓘ next to EVSE-XXXXXX → <strong>Forget This Device</strong>, then pair again in the app (<a href="#unpair">§8.4</a>).</li>
+</ul>
+
+</section><section id="charging"><div class="chapnum">Chapter 3</div><h2>Charging</h2>
+<p>Tap the BN21 card on the home screen to open the device page. It opens on the "Status" tab.</p>
+<h3>3.1 Your first charge</h3>
+<ol>
+<li>Plug the cable into your car. The screen changes from "No cable connected" to "Ready".</li>
+<li>If needed, drag the "Current limit" slider (6 – 8 A).</li>
+<li>Tap "Start charging". Tap or swipe "Stop charging" at any time.</li>
+</ol>
+<div class="note"><p>With "Plug &amp; Charge" turned on (<a href="#start-method">§5</a>), charging starts as soon as you plug in — no tap needed.</p></div>
+<h3>3.2 States you'll see</h3>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>State</th>
+<th>When</th>
+<th>What you can do</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>"No cable connected"</td>
+<td>Cable not plugged in</td>
+<td>Plug in</td>
+</tr>
+<tr>
+<td>"Ready"</td>
+<td>Plugged in, car recognised</td>
+<td>Adjust current, "Start charging"</td>
+</tr>
+<tr>
+<td>Charging</td>
+<td>Charging in progress</td>
+<td>Adjust current, "Stop charging"</td>
+</tr>
+<tr>
+<td>"Waiting" / "Scheduled"</td>
+<td>A schedule is set and it's not time yet</td>
+<td>"Stop charging" to cancel this wait, or "Start now" to charge immediately</td>
+</tr>
+<tr>
+<td>"Vehicle paused"</td>
+<td>The car stopped drawing power (usually reached its own target charge level)</td>
+<td>"End charging" to close the session</td>
+</tr>
+<tr>
+<td>"Charging paused by the charger"</td>
+<td>The charger's protection kicked in</td>
+<td>Fix the cause, then "Resume"</td>
+</tr>
+<tr>
+<td>"Complete"</td>
+<td>This charge has finished</td>
+<td>See the summary, "Charge again"</td>
+</tr>
+</tbody>
+</table></div>
+<figure class="shot-grid cols3"><div><img src="images/screenshots/now_ready_en.jpg" alt="Ready" loading="lazy"></div><div><img src="images/screenshots/now_charging_en.jpg" alt="Charging" loading="lazy"></div><div><img src="images/screenshots/now_complete_en.jpg" alt="Complete" loading="lazy"></div><figcaption>Ready · Charging · Complete (illustrative; your screen may differ)</figcaption></figure>
+
+<h3>3.3 While charging</h3>
+<ul>
+<li>The gauge in the middle shows current power out of 1.84 kW;</li>
+<li>Voltage, current and power are live readings; energy and duration add up for this session. Missing data shows "—", never a made-up 0;</li>
+<li>Duration counts only actual charging time — pauses aren't counted.</li>
+</ul>
+<h3>3.4 Current limit</h3>
+<p>The BN21 is rated 8 A, so the slider runs <strong>6 – 8 A</strong>. Release the slider or tap a point on it to send the new limit. If the charger rejects it, the slider snaps back and tells you why. Turn it down if the outlet's wiring is old and you're worried about heat.</p>
+<h3>3.5 When your phone leaves</h3>
+<ul>
+<li><strong>Charging carries on</strong>: the charger runs the session itself. Walk away or close the app and it keeps charging until the car is full or you stop it.</li>
+<li>Seeing "Device offline" after you walk away is normal — the BN21 only has Bluetooth. Come back and open the device page to reconnect.</li>
+<li>To stop charging while you're away: you can't. Unplug the cable, or stop it from the app or the charger's button when you're back.</li>
+</ul>
+
+</section><section id="schedule"><div class="chapnum">Chapter 4</div><h2>Scheduled charging</h2>
+<p>Device page → <strong>"Schedule"</strong> tab. Handy for off-peak charging.</p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Mode</th>
+<th>Settings</th>
+<th>Behaviour</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>"One-time"</strong></td>
+<td>A future date + time</td>
+<td>Starts once at that time</td>
+</tr>
+<tr>
+<td><strong>"Recurring"</strong></td>
+<td>Pick weekdays + one start time</td>
+<td>Starts at that time on each chosen day</td>
+</tr>
+</tbody>
+</table></div>
+<p>Only one mode can be on — turning one on turns the other off.</p>
+<p><strong>How</strong>: set the time first → then turn on "Enable schedule" / "Recurring schedule" (this is when it's sent to the charger) → "Schedule set" means it worked. While the switch is on the time is locked; turn it off to change it.</p>
+<p><strong>Three things to know on the BN21:</strong></p>
+<ol>
+<li><strong>Turn off "Plug &amp; Charge"</strong> (<a href="#start-method">§5</a>) first — otherwise charging starts the moment you plug in and the schedule never applies.</li>
+<li>The charger runs the schedule itself. Once set, your phone can leave and the app can be closed.</li>
+<li><strong>Connect with the app once after a power cut.</strong> When the portable charger is unplugged from the wall, its internal clock is lost. Next time you plug it in, open the app and connect (just open the device page — the app sets the time automatically). Until then, the schedule may run at the wrong time.</li>
+</ol>
+<figure class="shot-grid cols1"><div><img src="images/screenshots/schedule_tab_en.jpg" alt="Schedule tab" loading="lazy"></div><figcaption>"Schedule" tab · One-time</figcaption></figure>
+
+
+</section><section id="start-method"><div class="chapnum">Chapter 5</div><h2>How charging starts: Plug &amp; Charge and the button</h2>
+<p>Device page → <strong>"Settings"</strong> → <strong>"Authentication"</strong> → <strong>"Plug &amp; Charge"</strong> switch (you need to be near the charger).</p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Plug &amp; Charge</th>
+<th>How charging starts</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>On</strong></td>
+<td>Plug in and it starts — nothing to tap</td>
+</tr>
+<tr>
+<td><strong>Off</strong></td>
+<td>Tap "Start charging" in the app, or press the button on the charger</td>
+</tr>
+</tbody>
+</table></div>
+<ul>
+<li><strong>The charger's button works in both modes</strong>, to start or stop charging — so you can stop a charge at the charger even without your phone.</li>
+<li>There's no "How to start charging" option in the BN21's settings. That's expected: its start methods are just the two above, nothing else to choose.</li>
+<li>If you use schedules (<a href="#schedule">§4</a>), remember to turn Plug &amp; Charge off.</li>
+</ul>
+
+</section><section id="settings"><div class="chapnum">Chapter 6</div><h2>Device settings</h2>
+<p>Device page → <strong>"Settings"</strong> tab. The BN21's settings page is shorter than on internet-connected models — no connection, sharing or firmware update rows. That's normal.</p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Section</th>
+<th>Setting</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Device card at the top</td>
+<td>Tap to rename</td>
+<td>Changes the name shown in the app only</td>
+</tr>
+<tr>
+<td>"Safety"</td>
+<td>"Max current"</td>
+<td>Read-only, 8 A</td>
+</tr>
+<tr>
+<td>"Display"</td>
+<td>"LCD brightness" + "Auto-adjust"</td>
+<td>The charger's own screen; previews as you drag, applies on release</td>
+</tr>
+<tr>
+<td>"Display"</td>
+<td>"Dimmed brightness" / "Dim after"</td>
+<td>How dim the idle screen gets, and after how long</td>
+</tr>
+<tr>
+<td>"Display"</td>
+<td>"Screen temperature unit" ℃ / ℉</td>
+<td>Temperature unit on the charger's screen</td>
+</tr>
+<tr>
+<td>"Authentication"</td>
+<td>"Plug &amp; Charge"</td>
+<td>See <a href="#start-method">§5</a></td>
+</tr>
+<tr>
+<td>"Firmware &amp; info"</td>
+<td>"About this charger"</td>
+<td>Model, serial number (double-tap to copy), max power / current, phases, firmware version, lifetime energy</td>
+</tr>
+<tr>
+<td>"Firmware &amp; info"</td>
+<td>"Fault codes"</td>
+<td>What each fault code on the charger's screen means and what to do</td>
+</tr>
+<tr>
+<td>Bottom</td>
+<td>"Unpair this device"</td>
+<td>See <a href="#unpair">§8</a></td>
+</tr>
+</tbody>
+</table></div>
+<div class="note"><p>Screen and Plug &amp; Charge settings need you near the charger with Bluetooth connected. If it can't connect, the app asks you to move closer and try again.</p></div>
+
+</section><section id="history"><div class="chapnum">Chapter 7</div><h2>History and costs</h2>
+<h3>7.1 Charging history</h3>
+<p>Device page → <strong>"History"</strong> tab:</p>
+<ul>
+<li>Recent energy / range / CO₂ saved, plus today and this month;</li>
+<li>Weekly / monthly / yearly bar chart;</li>
+<li>"View all" lists sessions by month, with date filters;</li>
+<li>Each session shows energy, cost, start method ("Via app" / "Device button" / "Plug &amp; Charge" / "Scheduled") and stop reason; "Download receipt (PDF)" is available;</li>
+<li>"Export full history (CSV)" opens in Excel or any spreadsheet app.</li>
+</ul>
+<p><strong>Where BN21 history comes from</strong>: the charger records every session itself and syncs it to the app when your phone connects. So:</p>
+<ul>
+<li>It doesn't matter if your phone wasn't around while charging — <strong>the session is filled in next time you open the device page</strong>;</li>
+<li>Plugging in for under 10 seconds without delivering any energy doesn't create a record;</li>
+<li>A field (such as start method) occasionally shows "—": that piece of data wasn't available for that session; it's not an error.</li>
+</ul>
+<figure class="shot-grid cols1"><div><img src="images/screenshots/history_en.jpg" alt="History tab" loading="lazy"></div><figcaption>"History" tab</figcaption></figure>
+
+<h3>7.2 Electricity price and vehicle efficiency</h3>
+<p><strong>Me → Electricity rate / Vehicle efficiency</strong> (global settings — no sign-in, no internet, shared by all your devices):</p>
+<ul>
+<li><strong>Electricity price</strong>: set time-of-use prices (peak / off-peak) for weekdays, Saturdays and Sundays. Time windows can run past midnight. Once set, history and the "Complete" screen show a cost estimate for each charge. In Australia, the UK, Spain, Italy, Portugal and France you can tap "Import from your electricity company" to pull in your plan (this step needs your phone online).</li>
+<li><strong>Vehicle efficiency</strong>: set kWh per 100 km (default 17) to convert energy into driving range. Range and CO₂ figures are estimates.</li>
+</ul>
+
+</section><section id="unpair"><div class="chapnum">Chapter 8</div><h2>Unpairing, handing over and changing phones</h2>
+<h3>8.1 Unpair (near the charger)</h3>
+<p>Device page → <strong>"Settings"</strong> → <strong>"Unpair this device"</strong> at the bottom → go through the checklist → <strong>"Unpair"</strong>. It takes about 10 seconds; stay near the charger and keep Bluetooth on.</p>
+<p>Unpairing clears the pairing on the charger and removes this BN21's history, schedules and display settings from this phone. Afterwards anyone can pair it straight away.</p>
+<h3>8.2 When you're not near the charger</h3>
+<p>The BN21 can only be unpaired over Bluetooth. Away from it, you can only remove it from this phone: the device disappears from the app, but <strong>the pairing on the charger remains</strong>, so whoever pairs it next has to factory-reset it first (<a href="#unpair">§8.3</a>). Before handing the charger over, unpair it next to the charger if you can.</p>
+<h3>8.3 Factory-reset the charger</h3>
+<ol>
+<li>Unplug the charging cable from the car;</li>
+<li>Unplug the charger from the wall, then plug it back in;</li>
+<li>Within 30 seconds of powering on, press and hold the charger's button for about 10 seconds;</li>
+<li><strong>Unplug it from the wall and plug it back in once more</strong> (don't skip this — otherwise a new phone can't pair);</li>
+<li>Wait for the screen to settle, then pair again.</li>
+</ol>
+<h3>8.4 Before pairing again on an iPhone: forget the old Bluetooth pairing</h3>
+<p>After unpairing or a factory reset, if you're pairing again on the <strong>same iPhone</strong>: go to iPhone <strong>Settings → Bluetooth</strong>, tap ⓘ next to EVSE-XXXXXX → <strong>Forget This Device</strong>, then pair in the app. The system's old pairing isn't removed by unpairing, and leaving it causes repeated connection failures.</p>
+<figure class="diagram"><img src="images/rebind.en.svg" alt="Re-pairing on iOS in three steps" loading="lazy"><figcaption>Re-pairing on iOS in three steps</figcaption></figure>
+<h3>8.5 Changing phones</h3>
+<p>The BN21 isn't online, so <strong>a new phone can't take over the old phone's pairing directly</strong>.</p>
+<ul>
+<li>Old phone still works: unpair with it next to the charger (<a href="#unpair">§8.1</a>), then pair with the new phone;</li>
+<li>Old phone lost or broken: factory-reset the charger (<a href="#unpair">§8.3</a>), then pair with the new phone.</li>
+</ul>
+<p>History on the old phone doesn't move to the new one. To keep it, use "Export full history (CSV)" before switching.</p>
+
+</section><section id="messages"><div class="chapnum">Chapter 9</div><h2>Messages and alerts</h2>
+<p>Tap the bell in the top-right of the home screen to open Messages. While your phone is connected to the BN21, charging start / finish and alerts (such as over-temperature, over-current, ground fault, abnormal voltage) are recorded here — no sign-in needed.</p>
+<p>The BN21 isn't online, so <strong>you get no alerts while your phone is away</strong>; you'll see the latest status when you're back and connected. For what each alert means, see "Alerts" in the Help center; for codes on the charger's screen, see <strong>Settings → Fault codes</strong>.</p>
+
+</section><section id="faq"><div class="chapnum">Chapter 10</div><h2>FAQ</h2>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Question</th>
+<th>Cause and fix</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>The app says "Device offline"</td>
+<td>The BN21 only has Bluetooth: move closer, make sure Bluetooth is on and the charger is powered. If Bluetooth access was denied, allow it in system Settings</td>
+</tr>
+<tr>
+<td>Can I stop charging when I'm not home?</td>
+<td>No. The BN21 isn't online — come back and use the app or the charger's button, or unplug the cable</td>
+</tr>
+<tr>
+<td>The schedule didn't start on time</td>
+<td>① Is Plug &amp; Charge off? ② After a power cut, did you connect with the app once (<a href="#schedule">§4</a>, point 3)? ③ Does the car have its own schedule, or is it already full?</td>
+</tr>
+<tr>
+<td>Charging starts as soon as I plug in; the schedule does nothing</td>
+<td>Plug &amp; Charge is on — turn it off in Settings</td>
+</tr>
+<tr>
+<td>No Wi-Fi / sharing / firmware update in Settings</td>
+<td>The BN21 doesn't support these — that's normal</td>
+</tr>
+<tr>
+<td>The charger's button does nothing</td>
+<td>Make sure the cable is plugged in and the charger has no fault. If it still doesn't work, flip the Plug &amp; Charge switch once in Settings (on or off, while near the charger) and try again</td>
+</tr>
+<tr>
+<td>Can't pair after a factory reset</td>
+<td>Power-cycle once more after the reset (<a href="#unpair">§8.3</a> step 4); on the same iPhone, also forget the old Bluetooth pairing (<a href="#unpair">§8.4</a>)</td>
+</tr>
+<tr>
+<td>"We couldn't confirm whether the command went through"</td>
+<td>It doesn't mean it failed — the confirmation timed out. The screen updates on its own shortly; don't keep tapping</td>
+</tr>
+<tr>
+<td>"Charger no longer paired"</td>
+<td>The charger was factory-reset or unpaired by someone else. Tap "Remove device" in the dialog, then pair again</td>
+</tr>
+<tr>
+<td>A charge is missing from history</td>
+<td>Open the device page so your phone connects — it'll be filled in. Plug-ins under 10 seconds aren't recorded</td>
+</tr>
+</tbody>
+</table></div>
+<p>More help: <strong>Me → Help center</strong>, or sign in and use <strong>Me → Feedback</strong> to open a ticket (leave "Diagnostics" on to help us find the problem).</p>
+
+</section><section id="specs"><div class="chapnum">Appendix</div><h2>Specifications</h2>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Item</th>
+<th>BN21</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Model code</td>
+<td>bn21-02-eu</td>
+</tr>
+<tr>
+<td>Supply</td>
+<td>Single-phase 230 V</td>
+</tr>
+<tr>
+<td>Rated current / power</td>
+<td>8 A / 1.84 kW (adjustable 6 – 8 A in the app)</td>
+</tr>
+<tr>
+<td>Connector</td>
+<td>Type 2 cable</td>
+</tr>
+<tr>
+<td>Screen</td>
+<td>Yes (display-only)</td>
+</tr>
+<tr>
+<td>Connectivity</td>
+<td>Bluetooth (no Wi-Fi / cloud)</td>
+</tr>
+<tr>
+<td>Start methods</td>
+<td>App, charger button, Plug &amp; Charge</td>
+</tr>
+<tr>
+<td>NFC cards / load balancing / solar / firmware update from app</td>
+<td>Not supported</td>
+</tr>
+</tbody>
+</table></div>
+
+<p><em>Written against the EVSE Pro English UI; features follow the released version. Screenshots are taken from other models, so some details may differ on the BN21.</em></p></section></div><div class="zh" lang="zh-CN"><div class="eyebrow"><div class="mark">BN21</div><span class="pill">bn21-02-eu</span><span class="pill">1.84 kW · 8 A</span><span class="pill">纯蓝牙</span></div><h1>BN21 便携充电器 · EVSE Pro App 使用手册</h1><div class="meta"><p>适用设备：BN21 便携交流充电器（型号码 <code>bn21-02-eu</code>，单相 230 V / 8 A / 1.84 kW，欧标 Type 2 枪线，带屏）</p><p>适用 App：EVSE Pro v1.7.0 起 · 语言：简体中文</p><p>本手册只讲 BN21 用得到的功能。其他型号的完整功能见<a href="https://help.evse.com/manual/">《EVSE Pro 使用功能说明书》</a>；排障问答见 App 内「我的 → 帮助中心」。</p></div><details class="mtoc"><summary>目录</summary><a href="#zh-at-a-glance">先看这一页</a><a href="#zh-prepare">准备</a><a href="#zh-pairing">添加 BN21（约 1 分钟）</a><a href="#zh-charging">充电</a><a href="#zh-schedule">预约充电</a><a href="#zh-start-method">启动方式：即插即充与桩上按键</a><a href="#zh-settings">设备设置</a><a href="#zh-history">充电记录与费用</a><a href="#zh-unpair">解绑、转让与换手机</a><a href="#zh-messages">消息与提醒</a><a href="#zh-faq">常见问题</a><a href="#zh-specs">规格速查</a></details><section id="zh-at-a-glance"><div class="chapnum">速览</div><h2>先看这一页</h2>
+<p>BN21 是<strong>纯蓝牙</strong>的便携充电器：手机靠近它就能控制，<strong>不需要家庭 Wi-Fi，也不需要注册账号</strong>。</p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>你能做的</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>✅ 蓝牙配对、开始 / 停止充电</td>
+<td>人在充电器旁（蓝牙范围内，一般 10 米以内）</td>
+</tr>
+<tr>
+<td>✅ 调整充电电流</td>
+<td>6 – 8 A</td>
+</tr>
+<tr>
+<td>✅ 预约充电（一次性 / 每周循环）</td>
+<td>设好后手机离开也照常执行</td>
+</tr>
+<tr>
+<td>✅ 即插即充开关、桩上按键启停</td>
+<td><a href="#zh-start-method">§5</a></td>
+</tr>
+<tr>
+<td>✅ 屏幕亮度、降暗、温度单位</td>
+<td>调的是充电器自带的屏幕</td>
+</tr>
+<tr>
+<td>✅ 充电记录、费用估算、导出</td>
+<td>数据存在手机上</td>
+</tr>
+<tr>
+<td>✅ 解绑 / 转让</td>
+<td><a href="#zh-unpair">§8</a></td>
+</tr>
+</tbody>
+</table></div>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>BN21 没有的</th>
+<th>原因</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>❌ 远程控制（不在充电器旁时操作）</td>
+<td>不联网，只有蓝牙一条通道</td>
+</tr>
+<tr>
+<td>❌ Wi-Fi 配网</td>
+<td>同上，配对流程里不会出现这一步</td>
+</tr>
+<tr>
+<td>❌ 不在旁边时的推送通知</td>
+<td>同上</td>
+</tr>
+<tr>
+<td>❌ 设备分享给家人</td>
+<td>当前版本不支持</td>
+</tr>
+<tr>
+<td>❌ 固件在线升级</td>
+<td>该型号不支持 App 升级固件</td>
+</tr>
+<tr>
+<td>❌ NFC 刷卡、负载均衡、太阳能</td>
+<td>硬件不带</td>
+</tr>
+</tbody>
+</table></div>
+<div class="note"><p>一句话：<strong>所有操作都要人在充电器旁、手机蓝牙打开。</strong> App 显示「离线」时，先走近一点、确认蓝牙已开。</p></div>
+
+</section><section id="zh-prepare"><div class="chapnum">第 1 章</div><h2>准备</h2>
+<ol>
+<li>在 App Store 安装 <strong>EVSE Pro</strong>。</li>
+<li>首次打开会请求<strong>蓝牙</strong>权限，请选「允许」——这是 BN21 唯一的通信方式。拒绝过的话，到 iPhone「设置 → 隐私与安全性 → 蓝牙」里打开 EVSE Pro。</li>
+<li>通知权限可选：BN21 不联网，用不到推送通知，拒绝也不影响使用。</li>
+<li><strong>账号可以不注册。</strong> BN21 的配对、控制、预约、记录都不需要登录；只有「意见反馈」需要登录。</li>
+</ol>
+
+</section><section id="zh-pairing"><div class="chapnum">第 2 章</div><h2>添加 BN21（约 1 分钟）</h2>
+<p>把 BN21 插上电源插座，等屏幕亮起，然后在 App 首页点「添加设备」（或右上角「+」）：</p>
+<ol>
+<li><strong>选择方式</strong>——选「通过蓝牙配对」，或「扫描二维码」：扫描充电器贴纸或屏幕上的二维码，扫码后同样走蓝牙。扫不出时点「直接搜索附近设备」改走蓝牙配对。</li>
+<li><strong>正在查找设备</strong>——手机靠近充电器，列表里出现形如 <strong>EVSE-XXXXXX</strong> 的设备，点它。iPhone 弹出系统蓝牙配对请求时点「配对」。</li>
+<li><strong>就快完成了</strong>——给设备起名，默认是蓝牙广播名，可改成「车里那台」「车库」等，方便以后辨认。</li>
+<li><strong>全部就绪</strong>——点「打开 &lt;设备名&gt;」进入控制页。</li>
+</ol>
+<p>BN21 没有 Wi-Fi 步骤，配对完就能用。</p>
+<figure class="shot-grid cols2"><div><img src="images/screenshots/pairing_start.jpg" alt="选择配对方式" loading="lazy"></div><div><img src="images/screenshots/scanning.jpg" alt="正在查找设备" loading="lazy"></div><figcaption>选择配对方式 · 正在查找设备</figcaption></figure>
+
+<p><strong>配不上？按顺序排查：</strong></p>
+<ul>
+<li>充电器屏幕亮着吗？手机离它够近吗？</li>
+<li>提示「这台充电桩已被绑定」：这台 BN21 还绑在别人（或你以前）的手机上，需要原主人先解绑，或在充电器上恢复出厂（<a href="#zh-unpair">§8.3</a>）。</li>
+<li><strong>刚恢复过出厂</strong>的 BN21：恢复出厂后<strong>必须再断电重启一次</strong>才能配对，否则会反复连上又断开。拔掉插头，等 10 秒再插上，等屏幕稳定后重新配对。</li>
+<li>以前在这台 iPhone 上配对过：到 iPhone「设置 → 蓝牙」，点 EVSE-XXXXXX 旁的 ⓘ →「忽略此设备」，再回 App 重新配对（<a href="#zh-unpair">§8.4</a>）。</li>
+</ul>
+
+</section><section id="zh-charging"><div class="chapnum">第 3 章</div><h2>充电</h2>
+<p>从首页点 BN21 的卡片进入设备页，默认就是「状态」标签。</p>
+<h3>3.1 第一次充电</h3>
+<ol>
+<li>把充电枪插进车辆，界面从「未连接充电枪」变成「就绪」。</li>
+<li>需要的话拖动「电流上限」滑杆（6 – 8 A）。</li>
+<li>点「开始充电」。充电中随时点按或右滑「停止充电」。</li>
+</ol>
+<div class="note"><p>打开了「即插即充」（<a href="#zh-start-method">§5</a>）的话，插枪就会自动开始，不用点按钮。</p></div>
+<h3>3.2 界面上会看到的状态</h3>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>状态</th>
+<th>什么时候出现</th>
+<th>你能做的</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>「未连接充电枪」</td>
+<td>枪没插</td>
+<td>插枪</td>
+</tr>
+<tr>
+<td>「就绪」</td>
+<td>枪已插、车已识别</td>
+<td>调电流、「开始充电」</td>
+</tr>
+<tr>
+<td>充电中</td>
+<td>正在充</td>
+<td>调电流、「停止充电」</td>
+</tr>
+<tr>
+<td>「等待中」/「等待预约充电」</td>
+<td>设了预约、还没到点</td>
+<td>「停止充电」取消这次等待，或「立即充电」不等预约马上充</td>
+</tr>
+<tr>
+<td>「车辆已暂停」</td>
+<td>车自己不要电了（多半已到车上设的目标电量）</td>
+<td>「结束充电」生成记录</td>
+</tr>
+<tr>
+<td>「充电已被充电桩暂停」</td>
+<td>充电器保护动作</td>
+<td>排除原因后「恢复充电」</td>
+</tr>
+<tr>
+<td>「已完成」</td>
+<td>本次充电结束</td>
+<td>看汇总、「再次充电」</td>
+</tr>
+</tbody>
+</table></div>
+<figure class="shot-grid cols3"><div><img src="images/screenshots/now_ready.jpg" alt="就绪" loading="lazy"></div><div><img src="images/screenshots/now_charging.jpg" alt="充电中" loading="lazy"></div><div><img src="images/screenshots/now_complete.jpg" alt="已完成" loading="lazy"></div><figcaption>就绪 · 充电中 · 已完成（示意图，界面以实际为准）</figcaption></figure>
+
+<h3>3.3 充电中界面</h3>
+<ul>
+<li>中间的功率表盘按「当前功率 / 1.84 kW」显示进度；</li>
+<li>电压、电流、功率是实时值，能量、时长是本次累计；拿不到的数据显示「—」，不会显示成 0；</li>
+<li>时长只算真正在充电的时间，暂停期间不计。</li>
+</ul>
+<h3>3.4 电流上限</h3>
+<p>BN21 额定 8 A，滑杆范围 <strong>6 – 8 A</strong>。拖动松手或直接点滑杆上的位置即下发；被充电器拒绝时滑杆自动弹回并提示原因。家里插座线路较老、怕发热时可以调低。</p>
+<h3>3.5 手机离开以后</h3>
+<ul>
+<li><strong>正在进行的充电不受影响</strong>：充电器自己管充电，手机走开、App 关掉，都会一直充到车充满或你回来停止。</li>
+<li>走开后 App 显示「设备离线」是正常的——BN21 只有蓝牙。回到充电器旁打开设备页即可重新连上。</li>
+<li>想在不在旁时停止充电：只能拔枪，或回来用 App / 桩上按键停止。</li>
+</ul>
+
+</section><section id="zh-schedule"><div class="chapnum">第 4 章</div><h2>预约充电</h2>
+<p>设备页 →「计划」标签。适合谷电时段充电。</p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>模式</th>
+<th>设置</th>
+<th>行为</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>一次性</strong></td>
+<td>未来某个日期 + 时刻</td>
+<td>到点自动开始一次</td>
+</tr>
+<tr>
+<td><strong>循环</strong></td>
+<td>每周选几天 + 一个统一时刻</td>
+<td>每逢选中的日子到点开始</td>
+</tr>
+</tbody>
+</table></div>
+<p>两种模式只能开一个，开一个会自动关另一个。</p>
+<p><strong>操作</strong>：先设时间 → 再打开「启用计划」/「循环计划」开关（这一刻才发给充电器）→ 提示「已设置预约充电」即成功。开关开着时时间不能改，要改先关掉。</p>
+<p><strong>BN21 预约三个要点：</strong></p>
+<ol>
+<li><strong>先关掉「即插即充」</strong>（<a href="#zh-start-method">§5</a>），否则一插枪就立即开始充，预约不起作用。</li>
+<li>预约由充电器自己按时执行，设好后手机离开、App 关闭都没关系。</li>
+<li><strong>BN21 断电后要用 App 连一次。</strong> 便携充电器拔下插头后内部时钟会丢失，下次插上电时请打开 App 连一下（进入设备页即可，App 会自动校准时间），预约才会按正确时间执行。没连之前，预约可能不准。</li>
+</ol>
+<figure class="shot-grid cols1"><div><img src="images/screenshots/schedule_tab.jpg" alt="「计划」标签" loading="lazy"></div><figcaption>「计划」标签 · 一次性</figcaption></figure>
+
+
+</section><section id="zh-start-method"><div class="chapnum">第 5 章</div><h2>启动方式：即插即充与桩上按键</h2>
+<p>设备页 →「设置」→「充电鉴权」→「即插即充」开关（需在充电器旁）。</p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>即插即充</th>
+<th>怎么开始充电</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>开</strong></td>
+<td>插枪即开始，什么都不用点</td>
+</tr>
+<tr>
+<td><strong>关</strong></td>
+<td>用 App 点「开始充电」，或按充电器上的按键</td>
+</tr>
+</tbody>
+</table></div>
+<ul>
+<li><strong>桩上按键在两种模式下都能用</strong>，可以用来开始或停止充电——手机不在身边时也能在充电器上直接停。</li>
+<li>BN21 设置页里没有「如何开始充电」选项，这是正常的：它的启动方式就是上表这两种，不需要另外选。</li>
+<li>想用预约（<a href="#zh-schedule">§4</a>），记得把即插即充关掉。</li>
+</ul>
+
+</section><section id="zh-settings"><div class="chapnum">第 6 章</div><h2>设备设置</h2>
+<p>设备页 →「设置」标签。BN21 的设置页比联网型号短，没有「连接」「分享」「固件更新」这些行，属正常。</p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>分组</th>
+<th>设置项</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>顶部设备卡</td>
+<td>点击改名</td>
+<td>改的只是 App 里的显示名</td>
+</tr>
+<tr>
+<td>安全</td>
+<td>最大电流</td>
+<td>只读，8 A</td>
+</tr>
+<tr>
+<td>显示</td>
+<td>屏幕亮度 + 自动调节</td>
+<td>调充电器自带屏幕，拖动实时预览、松手生效</td>
+</tr>
+<tr>
+<td>显示</td>
+<td>降暗亮度 / 降暗延时</td>
+<td>屏幕空闲多久后变暗、暗到多少</td>
+</tr>
+<tr>
+<td>显示</td>
+<td>温度单位 ℃ / ℉</td>
+<td>充电器屏幕上的温度单位</td>
+</tr>
+<tr>
+<td>充电鉴权</td>
+<td>即插即充</td>
+<td>见 <a href="#zh-start-method">§5</a></td>
+</tr>
+<tr>
+<td>固件与信息</td>
+<td>关于此充电桩</td>
+<td>型号、序列号（双击可复制）、最大功率 / 电流、相数、固件版本、累计充电量</td>
+</tr>
+<tr>
+<td>固件与信息</td>
+<td>故障码说明</td>
+<td>充电器屏幕上故障码的含义与处理建议</td>
+</tr>
+<tr>
+<td>底部</td>
+<td>解绑此设备</td>
+<td>见 <a href="#zh-unpair">§8</a></td>
+</tr>
+</tbody>
+</table></div>
+<div class="note"><p>屏幕、即插即充等设置都需要人在充电器旁、蓝牙已连。连不上时会提示「靠近后重试」。</p></div>
+
+</section><section id="zh-history"><div class="chapnum">第 7 章</div><h2>充电记录与费用</h2>
+<h3>7.1 充电记录</h3>
+<p>设备页 →「记录」标签：</p>
+<ul>
+<li>最近充电的电量 / 续航 / 减碳统计，今天 / 本月汇总；</li>
+<li>周 / 月 / 年充电量柱状图；</li>
+<li>「查看全部」按月分组，可按日期筛选；</li>
+<li>单条详情：电量、费用、开启方式（App 启动 / 按键启动 / 即插即充 / 预约启动）、停止方式；可「下载回执（PDF）」；</li>
+<li>「导出完整历史（CSV）」可在电脑上用 Excel 打开。</li>
+</ul>
+<p><strong>BN21 的记录怎么来的</strong>：充电器自己记录每次充电，手机连上时同步到 App。所以：</p>
+<ul>
+<li>充电时手机不在旁也没关系，<strong>下次打开设备页时会自动补上</strong>；</li>
+<li>插枪不到 10 秒、一点电没充进去的「空插」不会生成记录；</li>
+<li>偶尔个别字段（如开启方式）显示「—」，表示这次没拿到这项数据，不是出错。</li>
+</ul>
+<figure class="shot-grid cols1"><div><img src="images/screenshots/history.jpg" alt="「记录」标签" loading="lazy"></div><figcaption>「记录」标签</figcaption></figure>
+
+<h3>7.2 电价与车辆能耗</h3>
+<p>「我的 → 电价 / 车辆能耗」（全局设置，不用登录、不用联网，所有设备共用）：</p>
+<ul>
+<li><strong>电价方案</strong>：按工作日 / 周六 / 周日设置分时电价（峰 / 平 / 谷），时段可以跨夜。设好后记录和「已完成」页会显示每次充电的费用估算。澳洲、英国、西班牙、意大利、葡萄牙、法国用户可点「从电力公司导入」直接导入套餐（这一步需要手机联网）。</li>
+<li><strong>车辆能耗</strong>：设置百公里电耗（默认 17 kWh），用来把电量换算成续航里程。里程与减碳都是估算值。</li>
+</ul>
+
+</section><section id="zh-unpair"><div class="chapnum">第 8 章</div><h2>解绑、转让与换手机</h2>
+<h3>8.1 解绑（在充电器旁）</h3>
+<p>设备页 →「设置」→ 底部「解绑此设备」→ 按清单确认 →「解绑」。全程约 10 秒，请站在充电器旁、别关蓝牙。</p>
+<p>解绑会：解除充电器上的绑定，并清除本机上这台 BN21 的充电记录、预约、显示设置等。解绑后任何人都能直接重新配对它。</p>
+<h3>8.2 不在充电器旁时</h3>
+<p>BN21 只能通过蓝牙解除绑定。人不在旁边时只能「从本机移除」：App 里的设备没了，但<strong>充电器上的绑定还在</strong>，之后谁要再配对它，都得先在充电器上恢复出厂（<a href="#zh-unpair">§8.3</a>）。所以转让前，请尽量在充电器旁完成解绑。</p>
+<h3>8.3 在充电器上恢复出厂</h3>
+<ol>
+<li>拔下充电枪；</li>
+<li>拔掉电源插头，再插上；</li>
+<li>通电后 30 秒内，长按充电器按键约 10 秒；</li>
+<li><strong>再拔插一次电源</strong>（这一步不能省，否则新手机配不上）；</li>
+<li>等屏幕稳定后重新配对。</li>
+</ol>
+<h3>8.4 iPhone 重新配对前：忽略旧蓝牙</h3>
+<p>解绑或恢复出厂后，如果要在<strong>同一台 iPhone</strong> 上重新配对：先到 iPhone「设置 → 蓝牙」，点 EVSE-XXXXXX 旁的 ⓘ →「忽略此设备」，再回 App 配对。系统里的旧配对不会随解绑自动清除，不忽略会反复连接失败。</p>
+<figure class="diagram"><img src="images/rebind.zh.svg" alt="iOS 重新绑定三步" loading="lazy"><figcaption>iOS 重新绑定三步</figcaption></figure>
+<h3>8.5 换手机</h3>
+<p>BN21 不联网，<strong>新手机无法直接接管旧手机的绑定</strong>。</p>
+<ul>
+<li>旧手机还能用：在充电器旁用旧手机解绑（<a href="#zh-unpair">§8.1</a>），再用新手机配对；</li>
+<li>旧手机已丢失 / 损坏：在充电器上恢复出厂（<a href="#zh-unpair">§8.3</a>），再用新手机配对。</li>
+</ul>
+<p>旧手机上的充电记录不会迁移到新手机；需要保留的话，换机前先「导出完整历史（CSV）」。</p>
+
+</section><section id="zh-messages"><div class="chapnum">第 9 章</div><h2>消息与提醒</h2>
+<p>首页右上角铃铛进入消息中心。手机连着 BN21 时，充电开始 / 完成、告警（如过温、过流、接地故障、电压异常）会记录在这里，不用登录。</p>
+<p>BN21 不联网，<strong>手机不在旁时收不到任何通知</strong>，回来连上后才会看到新状态。告警含义见帮助中心「告警说明」，充电器屏幕上的故障码见「设置 → 故障码说明」。</p>
+
+</section><section id="zh-faq"><div class="chapnum">第 10 章</div><h2>常见问题</h2>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>问题</th>
+<th>原因与处理</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>App 显示「离线」</td>
+<td>BN21 只有蓝牙：走近充电器、确认手机蓝牙已开、充电器已通电。蓝牙权限被拒的话到系统设置里允许</td>
+</tr>
+<tr>
+<td>不在家时能停止充电吗？</td>
+<td>不能。BN21 不联网，只能回来用 App、桩上按键，或拔枪</td>
+</tr>
+<tr>
+<td>预约没按时开始</td>
+<td>①即插即充是否已关；②充电器断过电后是否用 App 连过一次（<a href="#zh-schedule">§4</a> 要点 3）；③车辆自身是否设了预约或已充满</td>
+</tr>
+<tr>
+<td>插枪就开始充，预约没用</td>
+<td>即插即充开着，到「设置」关掉</td>
+</tr>
+<tr>
+<td>设置页找不到 Wi-Fi / 分享 / 固件更新</td>
+<td>BN21 不支持这些功能，正常</td>
+</tr>
+<tr>
+<td>充电器上按键没反应</td>
+<td>先确认已插枪、充电器无故障；仍无效时到「设置」把即插即充开关拨一下（开或关都行，需在充电器旁），再试</td>
+</tr>
+<tr>
+<td>恢复出厂后配不上</td>
+<td>恢复出厂后要再断电重启一次（<a href="#zh-unpair">§8.3</a> 第 4 步）；同一台 iPhone 还要先忽略旧蓝牙（<a href="#zh-unpair">§8.4</a>）</td>
+</tr>
+<tr>
+<td>提示「未能确认命令是否生效」</td>
+<td>不代表失败，只是确认超时，稍等界面会自动更新，别反复点</td>
+</tr>
+<tr>
+<td>提示「充电桩已解绑」</td>
+<td>充电器被恢复出厂或被别人解绑了，按弹窗「移除设备」后重新配对</td>
+</tr>
+<tr>
+<td>记录里少了一次充电</td>
+<td>打开设备页让手机连上，记录会自动补上；不到 10 秒的空插不记录</td>
+</tr>
+</tbody>
+</table></div>
+<p>更多问题：「我的 → 帮助中心」；或登录后「我的 → 反馈」提交工单（建议打开「诊断信息」开关，便于定位）。</p>
+
+</section><section id="zh-specs"><div class="chapnum">附录</div><h2>规格速查</h2>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>项目</th>
+<th>BN21</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>型号码</td>
+<td>bn21-02-eu</td>
+</tr>
+<tr>
+<td>供电</td>
+<td>单相 230 V</td>
+</tr>
+<tr>
+<td>额定电流 / 功率</td>
+<td>8 A / 1.84 kW（App 可调 6 – 8 A）</td>
+</tr>
+<tr>
+<td>接口</td>
+<td>欧标 Type 2 枪线</td>
+</tr>
+<tr>
+<td>屏幕</td>
+<td>有（只读显示屏）</td>
+</tr>
+<tr>
+<td>通信</td>
+<td>蓝牙（无 Wi-Fi / 云端）</td>
+</tr>
+<tr>
+<td>启动方式</td>
+<td>App、桩上按键、即插即充</td>
+</tr>
+<tr>
+<td>NFC 刷卡 / 负载均衡 / 太阳能 / App 固件升级</td>
+<td>不支持</td>
+</tr>
+</tbody>
+</table></div>
+
+<p><em>本手册以 EVSE Pro 简体中文界面文案编写，功能以实际发布版本为准。示意截图取自其他型号，界面细节可能与 BN21 略有不同。</em></p></section></div>
+<footer><span class="en">For other charger models, see the full <a href="https://help.evse.com/manual/">EVSE Pro User Manual</a>.</span><span class="zh">其他型号请见完整的<a href="https://help.evse.com/manual/">《EVSE Pro 使用功能说明书》</a>。</span></footer>
+</main>
+</div>
+<script>
+(function(){
+  var root=document.documentElement,bz=document.getElementById('lang-zh'),be=document.getElementById('lang-en');
+  var titles={en:'BN21 Portable Charger · EVSE Pro App User Manual',zh:'BN21 便携充电器 · EVSE Pro App 使用手册'};
+  function setLang(l,save){root.setAttribute('data-lang',l);root.lang=l==='zh'?'zh-CN':'en';document.title=titles[l];
+    bz.classList.toggle('on',l==='zh');be.classList.toggle('on',l==='en');
+    bz.setAttribute('aria-pressed',l==='zh');be.setAttribute('aria-pressed',l==='en');
+    if(save){try{localStorage.setItem('evse-bn21-manual-lang',l)}catch(e){}}spy();}
+  bz.addEventListener('click',function(){setLang('zh',true)});
+  be.addEventListener('click',function(){setLang('en',true)});
+  var bar=document.getElementById('progress');
+  function prog(){var h=document.documentElement,m=h.scrollHeight-h.clientHeight;bar.style.transform='scaleX('+(m>0?Math.min(1,h.scrollTop/m):0)+')'}
+  addEventListener('scroll',prog,{passive:true});addEventListener('resize',prog,{passive:true});
+  var obs=null;
+  function spy(){if(obs)obs.disconnect();if(!('IntersectionObserver' in window))return;
+    var l=root.getAttribute('data-lang')||'en',links=[].slice.call(document.querySelectorAll('nav.toc .'+l+' a')),by={},cur=null;
+    links.forEach(function(a){by[a.getAttribute('href').slice(1)]=a});
+    obs=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){var a=by[e.target.id];
+      if(a&&a!==cur){if(cur)cur.classList.remove('active');a.classList.add('active');cur=a}}})},{rootMargin:'-10% 0px -80% 0px'});
+    Object.keys(by).forEach(function(id){var s=document.getElementById(id);if(s)obs.observe(s)});}
+  var saved=null;try{saved=localStorage.getItem('evse-bn21-manual-lang')}catch(e){}
+  setLang(saved==='zh'?'zh':'en',false);prog();
+})();
+</script>
+</body>
+</html>

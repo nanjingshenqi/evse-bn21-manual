@@ -1,6 +1,5 @@
 # BN21 portable charger · EVSE Pro app user manual
 
-- 简体中文: https://nanjingshenqi.github.io/evse-bn21-manual/
-- English: https://nanjingshenqi.github.io/evse-bn21-manual/en.html
+https://nanjingshenqi.github.io/evse-bn21-manual/ — English by default, 中文 via the switch at the top right.
 
-Published copy. Source of truth lives in the private manual repo; edit there and re-sync.
+Generated copy. Edit the source in the private manual repo and regenerate with `tools/build_bn21_site.py`.
