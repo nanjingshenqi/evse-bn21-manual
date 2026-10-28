@@ -1,0 +1,26 @@
+<svg font-family='-apple-system, BlinkMacSystemFont, "PingFang SC", "Helvetica Neue", sans-serif' viewBox="0 0 640 190" xmlns="http://www.w3.org/2000/svg">
+  <rect x="24" y="30" width="180" height="100" rx="12" fill="#FFFFFF" stroke="#E1E8EF" stroke-width="1.5"/>
+  <rect x="230" y="30" width="180" height="100" rx="12" fill="#FBEEDB" stroke="#B45309" stroke-width="1.5"/>
+  <rect x="436" y="30" width="180" height="100" rx="12" fill="#FFFFFF" stroke="#E1E8EF" stroke-width="1.5"/>
+  <line x1="204" y1="80" x2="221" y2="80" stroke="#5B6B7E" stroke-width="1.5"/>
+  <polygon points="230,80 221,76 221,84" fill="#5B6B7E"/>
+  <line x1="410" y1="80" x2="427" y2="80" stroke="#5B6B7E" stroke-width="1.5"/>
+  <polygon points="436,80 427,76 427,84" fill="#5B6B7E"/>
+  <!-- 卡2 内嵌 iOS 蓝牙行 -->
+  <rect x="246" y="62" width="148" height="24" rx="6" fill="#FFFFFF" stroke="#E1E8EF" stroke-width="1"/>
+  <circle cx="380" cy="74" r="8" fill="none" stroke="#B45309" stroke-width="1.5"/>
+  <g class="en">
+    <text x="114" y="56" text-anchor="middle" font-size="11.5" font-weight="600" fill="#0B1526">① Unpair in the app</text>
+    <text x="114" y="80" text-anchor="middle" font-size="9.5" fill="#5B6B7E">Settings, bottom:</text>
+    <text x="114" y="98" text-anchor="middle" font-size="9.5" fill="#5B6B7E">"Unpair this device"</text>
+    <text x="320" y="52" text-anchor="middle" font-size="11.5" font-weight="600" fill="#B45309">② iOS Settings → Bluetooth</text>
+    <text x="256" y="78" font-size="10" fill="#0B1526">EVSE-XXXXXX</text>
+    <text x="380" y="78" text-anchor="middle" font-size="10" font-weight="600" fill="#B45309">i</text>
+    <text x="320" y="108" text-anchor="middle" font-size="9.5" font-weight="600" fill="#B45309">tap ⓘ → "Forget This Device"</text>
+    <text x="526" y="56" text-anchor="middle" font-size="11.5" font-weight="600" fill="#0B1526">③ Pair again in the app</text>
+    <text x="526" y="80" text-anchor="middle" font-size="9.5" fill="#5B6B7E">Home "+" → Bluetooth pairing</text>
+    <text x="526" y="98" text-anchor="middle" font-size="9.5" fill="#5B6B7E">just like a new device</text>
+    <text x="320" y="156" text-anchor="middle" font-size="9.5" fill="#5B6B7E">iOS keeps the old Bluetooth pairing after the unbind — skip step ② and re-pairing keeps failing to connect</text>
+    <text x="320" y="174" text-anchor="middle" font-size="9.5" fill="#5B6B7E">Applies when re-binding the same charger to the same iPhone</text>
+  </g>
+</svg>

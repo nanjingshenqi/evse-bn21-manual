@@ -1,0 +1,26 @@
+<svg font-family='-apple-system, BlinkMacSystemFont, "PingFang SC", "Helvetica Neue", sans-serif' viewBox="0 0 640 190" xmlns="http://www.w3.org/2000/svg">
+  <rect x="24" y="30" width="180" height="100" rx="12" fill="#FFFFFF" stroke="#E1E8EF" stroke-width="1.5"/>
+  <rect x="230" y="30" width="180" height="100" rx="12" fill="#FBEEDB" stroke="#B45309" stroke-width="1.5"/>
+  <rect x="436" y="30" width="180" height="100" rx="12" fill="#FFFFFF" stroke="#E1E8EF" stroke-width="1.5"/>
+  <line x1="204" y1="80" x2="221" y2="80" stroke="#5B6B7E" stroke-width="1.5"/>
+  <polygon points="230,80 221,76 221,84" fill="#5B6B7E"/>
+  <line x1="410" y1="80" x2="427" y2="80" stroke="#5B6B7E" stroke-width="1.5"/>
+  <polygon points="436,80 427,76 427,84" fill="#5B6B7E"/>
+  <!-- 卡2 内嵌 iOS 蓝牙行 -->
+  <rect x="246" y="62" width="148" height="24" rx="6" fill="#FFFFFF" stroke="#E1E8EF" stroke-width="1"/>
+  <circle cx="380" cy="74" r="8" fill="none" stroke="#B45309" stroke-width="1.5"/>
+  <g class="zh">
+    <text x="114" y="56" text-anchor="middle" font-size="12" font-weight="600" fill="#0B1526">① App 内解绑</text>
+    <text x="114" y="80" text-anchor="middle" font-size="10.5" fill="#5B6B7E">设置页底部</text>
+    <text x="114" y="98" text-anchor="middle" font-size="10.5" fill="#5B6B7E">「解绑此设备」</text>
+    <text x="320" y="52" text-anchor="middle" font-size="12" font-weight="600" fill="#B45309">② iOS 设置 → 蓝牙</text>
+    <text x="256" y="78" font-size="10" fill="#0B1526">EVSE-XXXXXX</text>
+    <text x="380" y="78" text-anchor="middle" font-size="10" font-weight="600" fill="#B45309">i</text>
+    <text x="320" y="108" text-anchor="middle" font-size="10.5" font-weight="600" fill="#B45309">点 ⓘ，选「忽略此设备」</text>
+    <text x="526" y="56" text-anchor="middle" font-size="12" font-weight="600" fill="#0B1526">③ 回 App 重新配对</text>
+    <text x="526" y="80" text-anchor="middle" font-size="10.5" fill="#5B6B7E">首页「+」→ 蓝牙配对</text>
+    <text x="526" y="98" text-anchor="middle" font-size="10.5" fill="#5B6B7E">像新设备一样操作即可</text>
+    <text x="320" y="156" text-anchor="middle" font-size="10.5" fill="#5B6B7E">系统里的旧蓝牙配对不会随解绑自动清除 —— 跳过第 ② 步，重新配对会反复连接失败</text>
+    <text x="320" y="174" text-anchor="middle" font-size="10" fill="#5B6B7E">适用场景：解绑后想把同一台充电桩重新绑回这台 iPhone</text>
+  </g>
+</svg>
